@@ -112,174 +112,6 @@ function csm_hello_world_options_2() {
  */
 
 
-add_action ( 'wp_footer', 'csm_com_content' ); 
-
-function csm_com_content($content) {
-    $slug = get_queried_object()->post_name;
-	$slug = str_replace('-',' ',$slug);
-	$slug1 = get_queried_object()->post_name;
-	$input = stripslashes_deep ( esc_attr ( get_option ( 'csm-text' ) ) );
-	$slugs = explode(PHP_EOL,$input);
-	if(count($slugs)== 0) {
-		?>
-			<style>
-			div.l-subheader.at_top {
-				display: block!important;
-				background: #5bc5f2!important;
-    			color: #000000;
-			}
-			@media and (max-width: 480px) {
-				div.l-subheader.at_top {
-					display: none;
-				}		
-			}
-			@media (min-width: 900px)
-				.l-header.bg_transparent:not(.sticky) .l-subheader {
-    				box-shadow: none!important;
-    				background: #5bc5f2!important;
-				}
-			}
-			</style>
-
-		<?php 
-	}
-
-	else {
-		foreach($slugs as $i) {
-		if(str_contains($slug, trim($i))) { ?>
-			<style>
-			div.l-subheader.at_top {
-				display: block!important;
-				background: #5bc5f2!important;
-    			color: #000000;
-			}
-			@media and (max-width: 480px) {
-				div.l-subheader.at_top {
-					display: none;
-				}		
-			}
-			@media (min-width: 900px)
-				.l-header.bg_transparent:not(.sticky) .l-subheader {
-    				box-shadow: none!important;
-    				background: #5bc5f2!important;
-				}
-			}
-			</style>
-
-		<?php }
-	}
-	}
-	foreach($slugs as $i){
-		if (str_contains($slug1, trim($i))) {?>
-			<style>
-			div.l-subheader.at_top {
-				display: block!important;
-				background: #5bc5f2!important;
-    			color: #000000;
-			}
-			@media and (max-width: 480px) {
-				div.l-subheader.at_top {
-					display: none;
-				}		
-			}
-			@media (min-width: 900px)
-				.l-header.bg_transparent:not(.sticky) .l-subheader {
-    				box-shadow: none!important;
-    				background: #5bc5f2!important;
-				}
-			}
-			</style>
-
-		<?php 
-	}
-	}
-    
-}
-
-add_action ( 'wp_footer', 'csm_com_content_2' ); 
-
-function csm_com_content_2($content) {
-    $slug = get_queried_object()->post_name;
-	$slug = str_replace('-',' ',$slug);
-	$slug1 = get_queried_object()->post_name;
-	$input = stripslashes_deep ( esc_attr ( get_option ( 'csm-text-2' ) ) );
-	$slugs = explode(PHP_EOL,$input);
-	if(count($slugs)== 0) {
-		?>
-			<style>
-			div.l-subheader.at_top {
-				display: none!important;
-				background: #5bc5f2!important;
-    			color: #000000;
-			}
-			@media and (max-width: 480px) {
-				div.l-subheader.at_top {
-					display: none;
-				}		
-			}
-			@media (min-width: 900px)
-				.l-header.bg_transparent:not(.sticky) .l-subheader {
-    				box-shadow: none!important;
-    				background: #5bc5f2!important;
-				}
-			}
-			</style>
-
-		<?php 
-	}
-
-	else {
-		foreach($slugs as $i) {
-		if(str_contains($slug, trim($i))) { ?>
-			<style>
-			div.l-subheader.at_top {
-				display: none!important;
-				background: #5bc5f2!important;
-    			color: #000000;
-			}
-			@media and (max-width: 480px) {
-				div.l-subheader.at_top {
-					display: none;
-				}		
-			}
-			@media (min-width: 900px)
-				.l-header.bg_transparent:not(.sticky) .l-subheader {
-    				box-shadow: none!important;
-    				background: #5bc5f2!important;
-				}
-			}
-			</style>
-
-		<?php }
-	}
-	}
-	foreach($slugs as $i){
-		if (str_contains($slug1, trim($i))) {?>
-			<style>
-			div.l-subheader.at_top {
-				display: none!important;
-				background: #5bc5f2!important;
-    			color: #000000;
-			}
-			@media and (max-width: 480px) {
-				div.l-subheader.at_top {
-					display: none;
-				}		
-			}
-			@media (min-width: 900px)
-				.l-header.bg_transparent:not(.sticky) .l-subheader {
-    				box-shadow: none!important;
-    				background: #5bc5f2!important;
-				}
-			}
-			</style>
-
-		<?php 
-	}
-	}
-    
-}
-
 add_action ( 'wp_footer', 'check_messages' ); 
 
 function check_messages($content) {
@@ -307,4 +139,100 @@ function check_messages($content) {
 			</style>
 	<?php
 	}
+}
+
+add_action ( 'wp_footer', 'csm_com_content' ); 
+
+function csm_com_content($content) {
+    $slug = get_queried_object()->post_name;
+	$slug = str_replace('-',' ',$slug);
+	$slug1 = get_queried_object()->post_name;
+	$input = stripslashes_deep ( esc_attr ( get_option ( 'csm-text' ) ) );
+	$slugs = explode(PHP_EOL,$input);
+	if(strlen($input) == 0){ ?>
+			<style>
+			div.l-subheader.at_top {
+				display: block!important;
+				background: #5bc5f2!important;
+    			color: #000000;
+			}
+			@media and (max-width: 480px) {
+				div.l-subheader.at_top {
+					display: none;
+				}		
+			}
+			@media (min-width: 900px)
+				.l-header.bg_transparent:not(.sticky) .l-subheader {
+    				box-shadow: none!important;
+    				background: #5bc5f2!important;
+				}
+			}
+			</style>
+
+		<?php 
+			}
+	else {
+		foreach($slugs as $i){
+			if (str_contains($slug1, trim($i))) {?>
+			<style>
+			div.l-subheader.at_top {
+				display: block!important;
+				background: #5bc5f2!important;
+    			color: #000000;
+			}
+			@media and (max-width: 480px) {
+				div.l-subheader.at_top {
+					display: none;
+				}		
+			}
+			@media (min-width: 900px)
+				.l-header.bg_transparent:not(.sticky) .l-subheader {
+    				box-shadow: none!important;
+    				background: #5bc5f2!important;
+				}
+			}
+			</style>
+
+		<?php 
+			}
+		}
+	}
+    
+}
+
+add_action ( 'wp_footer', 'csm_com_content_2' ); 
+
+function csm_com_content_2($content) {
+    $slug = get_queried_object()->post_name;
+	$slug = str_replace('-',' ',$slug);
+	$slug1 = get_queried_object()->post_name;
+	$input = stripslashes_deep ( esc_attr ( get_option ( 'csm-text-2' ) ) );
+	$slugs = explode(PHP_EOL,$input);
+	if(strlen($input) > 0){
+		foreach($slugs as $i){
+		if (str_contains($slug1, trim($i))) {?>
+			<style>
+			div.l-subheader.at_top {
+				display: none!important;
+				background: #5bc5f2!important;
+    			color: #000000;
+			}
+			@media and (max-width: 480px) {
+				div.l-subheader.at_top {
+					display: none;
+				}		
+			}
+			@media (min-width: 900px)
+				.l-header.bg_transparent:not(.sticky) .l-subheader {
+    				box-shadow: none!important;
+    				background: #5bc5f2!important;
+				}
+			}
+			</style>
+
+		<?php 
+			}
+		}
+	}
+    
 }
